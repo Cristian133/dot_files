@@ -1,0 +1,150 @@
+#tecla de prefijo de Tmux cambiada similar a Screen: Ctrl-a
+set -g prefix M-q
+
+#libera el prefijo original de Tmux Ctrl-b
+unbind C-b
+
+#habilita mouse
+set -g mouse on
+
+# To copy, left click and drag to highlight text in yellow,
+# once you release left click yellow text will disappear and will automatically be available in clibboard
+# # Use vim keybindings in copy mode
+setw -g mode-keys vi
+# Update default binding of `Enter` to also use copy-pipe
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
+#configuracion del retraso entre el prefijo y el comando
+set -sg escape-time 1
+
+#comienza numerando las ventanas desde el 1
+set -g base-index 1
+
+#comienza numerando los paneles desde el 1
+setw -g pane-base-index 1
+
+# re-enumera ventanas cuando se cierra una
+set -g renumber-windows on
+
+# scrollback buffer n lines
+set -g history-limit 5000
+
+# listen for activity on all windows
+set -g bell-action any
+
+# on-screen time for display-panes in ms
+set -g display-panes-time 2000
+
+# enable wm window titles
+set -g set-titles on
+
+# enable auto renaming
+setw -g automatic-rename on
+
+#frecuencia de actualizacion de la barra de estado en segundos
+set -g status-interval 2
+
+#mejora el scroll con las teclas shift-PageUp/shift-PageDown
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+
+#recarga la configuracion de tmux y muestra un mensaje de confirmacion
+bind r source-file ~/.tmux.conf \; display "~/.tmux.conf recargado!"
+
+#asegura que podemos enviarle el comando Ctrl-a a otras apps
+bind M-q send-prefix
+
+# send the prefix to client inside window (ala nested sessions)
+bind-key -n M-q send-prefix
+
+
+#------------------------
+#    keybindings
+#------------------------
+
+#dividir la ventana horizontalmente
+#bind | split-window -h
+bind v split-window -h
+
+#dividir la ventana verticalmente
+#bind - split-window -v
+bind h split-window -v
+
+# set vi keys
+set -g status-keys vi
+setw -g mode-keys vi
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+
+# copy paste
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# pane selection
+bind Left select-pane -L
+bind Right select-pane -R
+bind Up select-pane -U
+bind Down select-pane -D
+
+# pane/window movement
+bind-key j command-prompt -p "join pane from:" "join-pane -s '%%'"
+bind-key s command-prompt -p "send pane to:" "join-pane -t '%%'"
+bind-key S command-prompt -p "swap window with:" "swap-window -t ':%%'"
+bind-key m command-prompt -p "move window to:" "move-window -t ':%%'"
+
+# quick view of processes
+bind '~' split-window "exec htop"
+
+# open {tmux,mutt,vim} man page
+bind-key T neww -n "Tmux manual" "exec man tmux"
+bind-key M neww -n "Mutt manual" "exec man mutt"
+bind-key V neww -n "Vim manual" "exec vim -c 'h user-manual|only'"
+
+# open %% man page
+bind C-m command-prompt -p "Open man page for:" "new-window 'exec man %%'"
+
+#toggle last window like screen
+bind-key C-b last-window
+
+# confirm before killing a window or the server
+bind-key k confirm kill-window
+bind-key K confirm kill-server
+
+# ctrl+left/right cycles thru windows
+#bind-key -n C-right next
+#bind-key -n C-left prev
+# alt+left/right
+bind-key -n M-right next
+bind-key -n M-left prev
+
+# environment
+set -g update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+
+#------------------------
+#      Status bar
+#------------------------
+
+# toggle statusbar
+bind-key b set-option status
+
+# status bar (needs patched font for some of the characters, for more info go to fisa-vim-config)
+set -g status-bg colour235
+set -g status-fg white
+set -g status-left ''
+set -g status-right ''
+set -g window-status-format " #I #W "
+set -g window-status-current-format "#[fg=colour0]#[bg=cyan] #I #W #[fg=cyan]#[bg=red]#[bg=default]"
+#set -g window-status-current-format "  #[fg=cyan]#I #W  "
+
+#color de marcado del la ventana seleccionada
+#setw -g window-status-current-bg red
+
+# border colour
+#set -g pane-border-fg white
+#set -g pane-border-bg default
+#set -g pane-active-border-fg white
+#set -g pane-active-border-bg default
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

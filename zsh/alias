@@ -1,0 +1,22 @@
+# variables
+export DEV="Desarrollos"
+
+# functions
+function l. { ( if test -d "$1";  then cd $1;  fi  &&  ls -ldF .[^\.]*; ); }
+
+# commands
+alias e="exit"
+alias c="clear"
+alias h="history"
+alias t="tmux"
+alias mc="mc --nosubshell"
+alias z="source $HOME/.zshrc"
+alias viz="nvim $HOME/.zshrc $HOME/.alias"
+alias viv="nvim $HOME/.config/nvim"
+
+# common paths
+alias cdv="$HOME/$DEV/"
+alias cdb="$HOME/.local/bin/"
+alias cdc="$HOME/$DEV/c/"
+alias cdd="$HOME/$DEV/dot_files/"
+
