@@ -58,4 +58,4 @@ popd > /dev/null || exit
 echo "nvim command: $(command -v nvim)"
 echo "nvim command: $(ls -al "$(command -v nvim)")"
 
-cp -r ../nvim ~/.config/
+cp -r ./nvim ~/.config/
