@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-cp ../git/gitconfig ~/.gitconfig
-cp ../htop/htoprc ~/.htoprc
-cp ../nano/nanorc ~/.nanorc
-cp ../zsh/alias ~/.alias
-cp ../env/exports ~/.exports
+cp ./git/gitconfig ~/.gitconfig
+cp ./htop/htoprc ~/.htoprc
+cp ./nano/nanorc ~/.nanorc
+cp ./zsh/alias ~/.alias
+cp ./env/exports.sh ~/.exports
 
 mkdir ~/.nano
 

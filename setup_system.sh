@@ -24,10 +24,25 @@ execute_script() {
     fi
 }
 
+# Ordered list of questions
+questions=(
+    "First of all we need to set environment variables"
+    "Do you want to update the system and install dependencies?"
+    "Do you want to compile and install vim?"
+    "Do you want to compile and install nvim?"
+    "Do you want to compile and install git?"
+    "Do you want to install dotfiles?"
+    "Do you want to install nerdFonts?"
+    "Do you want to install zsh?"
+    "Do you want to install tmux and plugins?"
+    "Do you want to install Node Version Manager and Node.js?"
+)
+
 # List of questions and scripts
 declare -A tasks=(
     ["First of all we need to set environment variables"]="env/exports.sh"
     ["Do you want to update the system and install dependencies?"]="sh/install_deps.sh"
+    ["Do you want to compile and install vim?"]="sh/install_vim.sh"
     ["Do you want to compile and install nvim?"]="sh/install_neovim.sh"
     ["Do you want to compile and install git?"]="sh/install_git.sh"
     ["Do you want to install dotfiles?"]="sh/install_dotfiles.sh"
@@ -37,8 +52,8 @@ declare -A tasks=(
     ["Do you want to install Node Version Manager and Node.js?"]="sh/install_node.sh"
 )
 
-# Iterate over the tasks
-for question in "${!tasks[@]}"; do
+# Iterate over the questions in order
+for question in "${questions[@]}"; do
     execute_script "$question" "${tasks[$question]}"
 done
 
