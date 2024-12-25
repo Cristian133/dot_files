@@ -1,5 +1,5 @@
 # variables
-export DEV="Desarrollos"
+export DEV="dev"
 
 # functions
 function l. { ( if test -d "$1";  then cd $1;  fi  &&  ls -ldF .[^\.]*; ); }
