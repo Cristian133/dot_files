@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Function to extract files based on their type
+extract_file() {
+    file="$1"
+    case "$file" in
+        *.zip)
+            echo "Extracting $file..."
+            unzip -o "$file" -d "${file%.*}" ;;
+        *.rar)
+            echo "Extracting $file..."
+            unrar x -o+ "$file" "${file%.*}" ;;
+        *.tar.gz | *.tgz)
+            echo "Extracting $file..."
+            mkdir -p "${file%.*}"
+            tar -xzf "$file" -C "${file%.*}" ;;
+        *.tar.bz2 | *.tbz2)
+            echo "Extracting $file..."
+            mkdir -p "${file%.*}"
+            tar -xjf "$file" -C "${file%.*}" ;;
+        *.tar.xz)
+            echo "Extracting $file..."
+            mkdir -p "${file%.*}"
+            tar -xJf "$file" -C "${file%.*}" ;;
+        *.tar)
+            echo "Extracting $file..."
+            mkdir -p "${file%.*}"
+            tar -xf "$file" -C "${file%.*}" ;;
+        *.gz)
+            echo "Extracting $file..."
+            gunzip -c "$file" > "${file%.gz}" ;;
+        *.bz2)
+            echo "Extracting $file..."
+            bunzip2 -c "$file" > "${file%.bz2}" ;;
+        *.xz)
+            echo "Extracting $file..."
+            unxz -c "$file" > "${file%.xz}" ;;
+        *)
+            echo "Skipping $file (unsupported format)" ;;
+    esac
+}
+
+# Recursively find and extract compressed files
+find . -type f \( -iname "*.zip" -o -iname "*.rar" -o -iname "*.tar.gz" -o -iname "*.tgz" -o -iname "*.tar.bz2" -o -iname "*.tbz2" -o -iname "*.tar.xz" -o -iname "*.tar" -o -iname "*.gz" -o -iname "*.bz2" -o -iname "*.xz" \) | while read -r file; do
+    extract_file "$file"
+done
+
+echo "Extraction complete!"
