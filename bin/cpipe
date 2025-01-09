@@ -1,0 +1,95 @@
+#!/bin/bash
+
+# Joerg Arndt's  cpipe
+# ... online at http://www.jjj.de/
+# your feedback is welcome  mailto: arndt (AT) jjj.de
+# version: 2002-February-18 (23:55)
+
+#set -vx
+
+##################################
+## Examples:
+# top -n 1 | cpipe root bash emacs mingetty
+# ps aux | cpipe  $(whoami)'.*'\$
+# ps aux | cpipe  root bash emacs mingetty
+
+## color demo:
+# echo -e '\n col1\n col2\n col3\n col4\n col5\n normal' | cpipe col1 col2 col3 col4 col5
+
+## the tar manpage in christmas-mode:
+# man tar -P cat | cpipe a b c d e 
+
+##################################
+
+
+C0='[00m' ## normal
+C1='[41m' ## bg red
+C2='[42m' ## bg green
+C3='[43m' ## bg yellow
+#C4='[44m' ## bg blue
+C5='[45m' ## bg magenta
+C4='[46m' ## bg cyan
+
+
+TTYONLY=1;
+while getopts :f OPT; do
+    case $OPT in
+        f|+f) TTYONLY=0;
+            ;;
+#        *)
+#            usage;
+#            exit 2
+    esac
+done
+shift $[ $OPTIND - 1 ]
+
+
+if [ ! -t 1 ]; then
+
+    ## if output is a pipe then do not colorize
+    ## instead insert [#1]expr[##], [#2]exp2[##]
+    
+#    C0='[##]';
+#    C1='[#1]'; C2='[#2]'; C3='[#3]'; C4='[#4]'; C5='[#5]';
+
+    ## if you prefer 'do nothing' inside a pipe:
+    if [ $TTYONLY -eq 1 ]; then        
+        unset C0 C1 C2 C3 C4 C5
+    fi
+
+else
+    ## if interrupted set:
+#    trap "echo -n '[30m[00m'" 0 ## color to black and attributes to normal
+    trap "echo -n '[00m'" 0 ## attributes to normal
+fi
+
+P1="s/$1/${C1}&${C0}/g;"
+P2="s/$2/${C2}&${C0}/g;"
+P3="s/$3/${C3}&${C0}/g;"
+P4="s/$4/${C4}&${C0}/g;"
+P5="s/$5/${C5}&${C0}/g;"
+
+case $# in
+
+    0) cat
+        ;;
+    1) sed "$P1"
+        ;;
+
+    2) sed "$P1 $P2"
+        ;;
+
+    3) sed "$P1 $P2 $P3"
+        ;;
+
+    4) sed "$P1 $P2 $P3 $P4"
+        ;;
+
+    *)  ## only args 1,...,5 are used
+        sed "$P1 $P2 $P3 $P4 $P5"
+        ;;
+esac
+
+
+exit $?
+############################################

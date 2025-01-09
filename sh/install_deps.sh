@@ -9,8 +9,13 @@ sudo apt install build-essential vim-gtk3 mc tree tmux htop exuberant-ctags \
     software-properties-common libssl-dev libghc-zlib-dev libcurl4-gnutls-dev \
     libexpat1-dev xsel indent
 
+# latex full
 sudo apt install texlive-full
+
+# embedded linux
+sudo apt install qemu-system
 
 sudo apt autoremove
 
+# install rust programming language
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
