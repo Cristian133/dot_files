@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Display a warning message in yellow
+echo -e "\e[33mWARNING: This action will move all files and subdirectories from subfolders to the current working directory. Empty folders will be deleted. This operation is irreversible!\e[0m"
+read -p "Do you want to proceed? (yes/no): " confirm
+
+if [[ "$confirm" != "yes" ]]; then
+    echo "Operation cancelled."
+    exit 0
+fi
+
+# Recursively move files and directories to the current directory
+find . -mindepth 2 -exec mv -t . {} + 2>/dev/null
+
+# Delete empty directories
+find . -type d -empty -delete
+
+echo "All files and subdirectories have been moved to the current working directory."
+echo "Empty folders have been deleted."
