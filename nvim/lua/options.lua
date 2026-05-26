@@ -1,8 +1,18 @@
 local opt = vim.opt
 
-opt.encoding="utf-8"
+-- Disable luarocks support completely
+-- opt.rocks.enabled = false
+
+-- Line wrap
+opt.wrap = true
+
+-- Encoding
+opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 vim.scriptencoding = "utf-8"
+
+-- Set lines to the cursor - when moving vertically using j/k or Up/Down
+opt.scrolloff = 3
 
 -- Files, backups and undo
 opt.swapfile = true
@@ -42,3 +52,5 @@ opt.listchars="eol:↲,trail:•,space:␣,tab:→ ,"
 opt.clipboard = "unnamedplus"
  -- Copy indent from current line when starting a new line.
 opt.autoindent = true
+-- Keep sign column always visible to avoid horizontal jitter with LSP/git signs
+opt.signcolumn = "yes"

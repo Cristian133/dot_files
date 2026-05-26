@@ -1,0 +1,106 @@
+[user]
+    name = Cristian Andrione
+    # email = cristian.andrione@gmail.com
+    email = candreoni@physis.com.ar
+
+[core]
+    editor = code --wait
+    pager = delta
+    autocrlf = input
+
+[init]
+    defaultBranch = main
+
+[color]
+    ui = true
+
+[column]
+    ui = auto
+
+[help]
+    autocorrect = prompt
+
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+    syntax-theme = base16
+    light = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[alias]
+    # Basic
+    a = add .
+    A = add -A
+    s = status -s
+    st = status
+    co = checkout
+    sw = switch
+    br = branch -v
+    rf = reflog -v
+    ci = commit
+    cm = commit -m
+    ca = commit --amend
+    p = push
+    d = diff
+
+    # History
+    l = log --pretty=format:'%C(bold blue)%h%C(reset) %C(green)[%an]%C(reset) %C(cyan)(%ad)%C(reset) %s'
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    last = log -1 HEAD
+
+    # Utility
+    unstage = reset HEAD --
+    undo = reset HEAD~1 --mixed
+    cane = commit --amend --no-edit
+    wip = !git add -A && git commit -m "WIP [skip ci]"
+
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+    submodule = log
+
+[merge]
+    conflictstyle = zdiff3
+
+[branch]
+    sort = -committerdate
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+
+[pull]
+    rebase = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+    parallel = 0
+
+[status]
+    showUntrackedFiles = all
+
+[commit]
+    verbose = true
+
+[tag]
+    sort = version:refname
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[credential]
+    helper = store

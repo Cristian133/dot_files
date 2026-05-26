@@ -17,7 +17,7 @@ return {
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer" },
+                ensure_installed = { "lua_ls", "ts_ls", "clangd", "zls" },
             })
         end,
     },
@@ -27,7 +27,6 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            local util = require("lspconfig.util")
 
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
@@ -35,7 +34,7 @@ return {
                     Lua = {
                         diagnostics = {
                             -- Get the language server to recognize the `vim` global
-                            globals = {'vim'},
+                            globals = { "vim" },
                         },
                     },
                 },
@@ -46,6 +45,12 @@ return {
                     "clangd",
                     "--fallback-style=webkit",
                 },
+            })
+            lspconfig.ts_ls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.zls.setup({
+                capabilities = capabilities,
             })
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,

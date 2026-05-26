@@ -155,32 +155,6 @@ function! Build()
     endif
 endfunction
 
-" function! Build()
-"     filetype detect
-"     echo "filetype:" &filetype
-"     let name_ext = expand("%:t")
-"     let name = fnamemodify(name_ext, ":r")
-"     if &filetype == 'tex'
-"         execute "! pdflatex " name
-"     elseif &filetype == 'c'
-"         execute "! gcc % -o" name
-"         execute "! ./"name
-"     elseif &filetype == 'sh'
-"         execute "! chmod +x %"
-"         execute "! ./%"
-"     elseif &filetype == 'ruby'
-"         execute "! chmod +x %"
-"         execute "! ruby %"
-"     elseif &filetype == 'python'
-"         execute "! chmod +x %"
-"         execute "! python3 %"
-"      elseif &filetype == 'rust'
-"         execute "! cargo run"
-"     else
-"         echo "We don't know how to process this type of file"
-"     endif
-" endfunction
-"
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
     execute "normal! vgvy"
