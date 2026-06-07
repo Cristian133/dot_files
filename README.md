@@ -59,7 +59,7 @@ Los tokens y credenciales **no van en el repo**. Crear `~/.env.local` (no versio
 
 Config basada en Lua con [lazy.nvim](https://github.com/folke/lazy.nvim). Ver [`nvim/README.md`](nvim/README.md) para la lista completa de plugins y [`nvim/KEYMAPS.md`](nvim/KEYMAPS.md) para la referencia de keybindings.
 
-Leader key: `Space`
+Leader key: `,`
 
 ### Tmux
 

@@ -58,13 +58,13 @@ Plugin structure:
 - `nvim/lua/functions.vim` / `nvim/lua/keymaps.vim` — legacy vimscript helpers
 
 Plugin manager: **lazy.nvim** (`:Lazy` to open). Active plugins:
-`alpha`, `autoclose`, `bufferline`, `nvim-cmp` + `luasnip`, `conform`, `nvim-dap` + `dap-ui`, `fugitive`, `gitsigns`, `indent-blankline`, `LSP` (mason + lspconfig + none-ls), `lualine`, `render-markdown`, `marks`, `neo-tree`, `nvim-surround`, `telescope`, `tokyonight`, `treesitter`, `trouble`, `which-key`, `nvim-comment`
+`alpha`, `autoclose`, `bufferline`, `nvim-cmp` + `luasnip`, `conform`, `nvim-dap` + `dap-ui`, `fugitive`, `gitsigns`, `indent-blankline`, `LSP` (mason + lspconfig), `conform`, `nvim-lint`, `lualine`, `render-markdown`, `marks`, `neo-tree`, `nvim-surround`, `telescope`, `tokyonight`, `treesitter`, `trouble`, `which-key`, `Comment.nvim`
 
 LSP servers (managed by Mason): `lua_ls`, `ts_ls`, `clangd`, `zls`, `rust_analyzer`, `omnisharp`, `angularls`  
-Formatters/linters via none-ls: `stylua` (Lua), `cpplint` (C/C++)  
+Formatters (conform): `stylua` (Lua). Linters (nvim-lint): `cpplint` (C/C++)  
 DAP adapter: `coreclr` (C# / .NET via `netcoredbg`)
 
-Key neovim shortcuts (leader = Space):
+Key neovim shortcuts (leader = `,`):
 - `<leader>zf` — find files, `<leader>zg` — live grep (Telescope)
 - `<leader>f` — Neo-tree sidebar, `<leader>ff` — Neo-tree float
 - `<leader>F` — format buffer, `<leader>ca` — code actions

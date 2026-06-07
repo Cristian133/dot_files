@@ -846,8 +846,8 @@ O desde Neovim con `F9` (si el proyecto tiene configurado el comando Build).
 Navegar al archivo y línea donde querés pausar, luego:
 
 ```
-Space db        → breakpoint normal
-Space dB        → breakpoint condicional (te pide la expresión)
+, db        → breakpoint normal
+, dB        → breakpoint condicional (te pide la expresión)
 ```
 
 Los breakpoints se marcan en el gutter con un símbolo rojo.
