@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local global = vim.g
 
 -- leader key
-global.mapleader = " "
+global.mapleader = ","
 
 -- easy ESC
 map("i", "ññ", "<ESC>", { noremap = true })

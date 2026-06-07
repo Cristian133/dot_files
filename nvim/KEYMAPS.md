@@ -1,6 +1,6 @@
 # Neovim Keymaps
 
-> **Leader key**: `Space`
+> **Leader key**: `,`
 
 ---
 
@@ -101,14 +101,14 @@
 | Atajo | Modo | Descripción |
 |-------|------|-------------|
 | `ññ` | Insert | Salir a Normal mode (ESC) |
-| `Space ñ` | Normal | Mostrar/ocultar caracteres invisibles |
-| `Space <CR>` | Normal | Limpiar highlight de búsqueda |
-| `Space L` | Normal | Toggle word wrap |
-| `Space J` | Normal | Ver historial de saltos |
-| `Space N` | Normal | Cambiar estilo de números de línea |
-| `Space C` | Normal | Toggle highlight columna 80 |
-| `Space Q` | Normal | Cerrar buffer (no cierra la ventana) |
-| `Space ?` | Normal | Mostrar keymaps del buffer (which-key) — ver sección Which-key |
+| `, ñ` | Normal | Mostrar/ocultar caracteres invisibles |
+| `, <CR>` | Normal | Limpiar highlight de búsqueda |
+| `, L` | Normal | Toggle word wrap |
+| `, J` | Normal | Ver historial de saltos |
+| `, N` | Normal | Cambiar estilo de números de línea |
+| `, C` | Normal | Toggle highlight columna 80 |
+| `, Q` | Normal | Cerrar buffer (no cierra la ventana) |
+| `, ?` | Normal | Mostrar keymaps del buffer (which-key) — ver sección Which-key |
 | `gI` | Normal | Ir a la última modificación |
 | `gi` | Normal | Ir al último lugar en Insert mode |
 
@@ -129,7 +129,7 @@
 
 ## Which-key
 
-> Se activa automáticamente al pausar tras un prefijo (ej: `Space`). También con `Space ?` para ver keymaps del buffer actual.
+> Se activa automáticamente al pausar tras un prefijo (ej: `,`). También con `, ?` para ver keymaps del buffer actual.
 
 **Keybindings internos (dentro del popup)**
 
@@ -148,8 +148,8 @@
 | Atajo | Modo | Descripción |
 |-------|------|-------------|
 | `Alt-w` | Normal | Movimientos de ventana (equivalente a `Ctrl-w`) |
-| `Space <Right>` | Normal | Siguiente buffer |
-| `Space <Left>` | Normal | Buffer anterior |
+| `, <Right>` | Normal | Siguiente buffer |
+| `, <Left>` | Normal | Buffer anterior |
 
 ---
 
@@ -161,8 +161,8 @@
 
 | Key | Acción |
 |-----|--------|
-| `Space <Right>` | Siguiente buffer |
-| `Space <Left>` | Buffer anterior |
+| `, <Right>` | Siguiente buffer |
+| `, <Left>` | Buffer anterior |
 | `gb{n}` | Ir al buffer número `n` (ej: `gb1` → primer buffer) |
 
 **Con el mouse**
@@ -282,35 +282,35 @@
 
 | Atajo | Modo | Descripción |
 |-------|------|-------------|
-| `Space K` | Normal | Mostrar documentación (hover) |
-| `Space bd` | Normal | Ir a definición |
-| `Space br` | Normal | Ir a referencias |
-| `Space ca` | Normal | Code actions |
-| `Space D` | Normal | Mostrar diagnóstico flotante |
-| `Space <Up>` | Normal | Diagnóstico anterior |
-| `Space <Down>` | Normal | Diagnóstico siguiente |
-| `Space F` | Normal | Formatear buffer |
-| `Space rn` | Normal | Renombrar símbolo |
+| `, K` | Normal | Mostrar documentación (hover) |
+| `, bd` | Normal | Ir a definición |
+| `, br` | Normal | Ir a referencias |
+| `, ca` | Normal | Code actions |
+| `, D` | Normal | Mostrar diagnóstico flotante |
+| `, <Up>` | Normal | Diagnóstico anterior |
+| `, <Down>` | Normal | Diagnóstico siguiente |
+| `, F` | Normal | Formatear buffer |
+| `, rn` | Normal | Renombrar símbolo |
 
 > LSP instalados: `lua_ls`, `ts_ls`, `clangd`, `zls`, `rust_analyzer`, `omnisharp`, `angularls`
 
 ### Keybindings internos
 
-**Ventana de hover (`Space K`)**
+**Ventana de hover (`, K`)**
 
 | Key | Acción |
 |-----|--------|
 | `K` | Entrar a la ventana flotante para scrollear |
 | `q` / `<Esc>` | Cerrar la ventana |
 
-**Ventana de referencias (`Space br`)**
+**Ventana de referencias (`, br`)**
 
 | Key | Acción |
 |-----|--------|
 | `<CR>` | Ir a la referencia seleccionada |
 | `q` | Cerrar la quickfix list |
 
-**Ventana de code actions (`Space ca`)**
+**Ventana de code actions (`, ca`)**
 
 | Key | Acción |
 |-----|--------|
@@ -318,13 +318,13 @@
 | `<CR>` | Ejecutar la acción seleccionada |
 | `<Esc>` | Cancelar |
 
-**Diagnóstico flotante (`Space D`)**
+**Diagnóstico flotante (`, D`)**
 
 | Key | Acción |
 |-----|--------|
 | `<Esc>` / `q` | Cerrar |
 
-**Rename (`Space rn`)**
+**Rename (`, rn`)**
 
 | Key | Acción |
 |-----|--------|
@@ -342,7 +342,7 @@
 
 | Atajo | Modo | Acción |
 |-------|------|--------|
-| `Space F` | Normal | Formatear el buffer actual (conform, con fallback a LSP) |
+| `, F` | Normal | Formatear el buffer actual (conform, con fallback a LSP) |
 
 **Herramientas activas**
 
@@ -365,21 +365,21 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space zf` | Buscar archivos |
-| `Space zg` | Live grep (buscar en contenido) |
-| `Space zb` | Lista de buffers abiertos |
-| `Space zh` | Buscar en help tags |
-| `Space zr` | Ver registros |
-| `Space zd` | Diagnósticos LSP |
-| `Space zt` | Símbolos Treesitter |
-| `Space zj` | Jump list |
-| `Space zm` | Marks |
-| `Space zs` | Historial de búsquedas |
-| `Space zc` | Historial de comandos |
-| `Space zgc` | Git commits |
-| `Space zgb` | Git branches |
-| `Space zgs` | Git status (cambios) |
-| `Space zgt` | Git stash |
+| `, zf` | Buscar archivos |
+| `, zg` | Live grep (buscar en contenido) |
+| `, zb` | Lista de buffers abiertos |
+| `, zh` | Buscar en help tags |
+| `, zr` | Ver registros |
+| `, zd` | Diagnósticos LSP |
+| `, zt` | Símbolos Treesitter |
+| `, zj` | Jump list |
+| `, zm` | Marks |
+| `, zs` | Historial de búsquedas |
+| `, zc` | Historial de comandos |
+| `, zgc` | Git commits |
+| `, zgb` | Git branches |
+| `, zgs` | Git status (cambios) |
+| `, zgt` | Git stash |
 
 ### Keybindings internos (dentro del picker)
 
@@ -420,10 +420,10 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space f` | Sidebar: filesystem |
-| `Space ff` | Float: filesystem |
-| `Space bb` | Float: buffers abiertos |
-| `Space gg` | Float: git status |
+| `, f` | Sidebar: filesystem |
+| `, ff` | Float: filesystem |
+| `, bb` | Float: buffers abiertos |
+| `, gg` | Float: git status |
 
 ### Keybindings internos (dentro del panel)
 
@@ -474,10 +474,10 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space gh` | Diff horizontal split (Fugitive) |
-| `Space gv` | Diff vertical split (Fugitive) |
-| `Space gp` | Preview hunk (Gitsigns) |
-| `Space gb` | Toggle blame de línea actual (Gitsigns) |
+| `, gh` | Diff horizontal split (Fugitive) |
+| `, gv` | Diff vertical split (Fugitive) |
+| `, gp` | Preview hunk (Gitsigns) |
+| `, gb` | Toggle blame de línea actual (Gitsigns) |
 
 ### Fugitive — keybindings internos
 
@@ -549,7 +549,7 @@
 | `:Gitsigns undo_stage_hunk` | Normal | Deshacer stage del último hunk |
 | `:Gitsigns diffthis` | Normal | Diff del archivo contra HEAD |
 
-**Dentro del preview de hunk (`Space gp`)**
+**Dentro del preview de hunk (`, gp`)**
 
 | Key | Acción |
 |-----|--------|
@@ -564,10 +564,10 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space xx` | Todos los diagnósticos del proyecto |
-| `Space xb` | Diagnósticos del buffer actual |
-| `Space xs` | Símbolos del archivo |
-| `Space xr` | Referencias LSP |
+| `, xx` | Todos los diagnósticos del proyecto |
+| `, xb` | Diagnósticos del buffer actual |
+| `, xs` | Símbolos del archivo |
+| `, xr` | Referencias LSP |
 
 ### Keybindings internos (dentro del panel)
 
@@ -602,7 +602,7 @@
 
 | Atajo | Modo | Descripción |
 |-------|------|-------------|
-| `Space M` | Normal | Toggle renderizado Markdown |
+| `, M` | Normal | Toggle renderizado Markdown |
 
 ---
 
@@ -614,12 +614,12 @@
 
 | Key | Modo | Acción |
 |-----|------|--------|
-| `Space cc` | Normal | Comentar/descomentar la línea actual |
-| `Space cb` | Normal | Comentar/descomentar como bloque |
-| `Space c{motion}` | Normal | Comentar/descomentar con motion (ej: `Space cj` → línea siguiente) |
-| `Space b{motion}` | Normal | Comentar/descomentar bloque con motion |
-| `Space c` | Visual | Comentar/descomentar la selección (línea) |
-| `Space b` | Visual | Comentar/descomentar la selección (bloque) |
+| `, cc` | Normal | Comentar/descomentar la línea actual |
+| `, cb` | Normal | Comentar/descomentar como bloque |
+| `, c{motion}` | Normal | Comentar/descomentar con motion (ej: `, cj` → línea siguiente) |
+| `, b{motion}` | Normal | Comentar/descomentar bloque con motion |
+| `, c` | Visual | Comentar/descomentar la selección (línea) |
+| `, b` | Visual | Comentar/descomentar la selección (bloque) |
 
 ---
 
@@ -650,10 +650,10 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space mm` | Listar marks del buffer |
-| `Space mj` | Saltar a la próxima línea con mark |
-| `Space mk` | Saltar a la línea anterior con mark |
-| `Space md` | Borrar todas las marks del buffer |
+| `, mm` | Listar marks del buffer |
+| `, mj` | Saltar a la próxima línea con mark |
+| `, mk` | Saltar a la línea anterior con mark |
+| `, md` | Borrar todas las marks del buffer |
 
 ### Default mappings (en el buffer)
 
@@ -783,9 +783,9 @@
 
 | Atajo | Descripción |
 |-------|-------------|
-| `Space db` | Toggle breakpoint |
-| `Space dB` | Breakpoint condicional (pide condición) |
-| `Space du` | Toggle panel DAP UI |
+| `, db` | Toggle breakpoint |
+| `, dB` | Breakpoint condicional (pide condición) |
+| `, du` | Toggle panel DAP UI |
 | `F5` | Continuar / Iniciar sesión de debug |
 | `F6` | Step over (siguiente línea, sin entrar) |
 | `F7` | Step into (entrar al método) |
@@ -881,7 +881,7 @@ La aplicación arranca y el panel DAP UI se abre automáticamente con:
 | Step into (entrar al método) | `F7` |
 | Step out (salir del método) | `F8` |
 
-Para inspeccionar una variable: posicionarse sobre ella y presionar `Space K` (hover del LSP, también funciona en modo debug).
+Para inspeccionar una variable: posicionarse sobre ella y presionar `, K` (hover del LSP, también funciona en modo debug).
 
 ---
 
@@ -889,12 +889,12 @@ Para inspeccionar una variable: posicionarse sobre ella y presionar `Space K` (h
 
 Dejar correr la app hasta que finalice, o terminarla desde el proceso. El panel DAP UI se cierra automáticamente.
 
-Para cerrar/reabrir el panel manualmente en cualquier momento: `Space du`.
+Para cerrar/reabrir el panel manualmente en cualquier momento: `, du`.
 
 ---
 
 ### Tips
 
-- **Breakpoint condicional**: `Space dB` → ingresar la condición en C# (ej: `id == 5`)
-- **Ver todos los breakpoints activos**: `Space xb` o `Space xx` (Trouble)
+- **Breakpoint condicional**: `, dB` → ingresar la condición en C# (ej: `id == 5`)
+- **Ver todos los breakpoints activos**: `, xb` o `, xx` (Trouble)
 - Si el picker no aparece al presionar `F5`, revisar que `netcoredbg` esté instalado: `:Mason` → buscar `coreclr`
