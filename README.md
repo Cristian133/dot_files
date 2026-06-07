@@ -74,6 +74,36 @@ Leader key: `,`
 - `pull.rebase = true`, `rerere` habilitado
 - Aliases útiles: `git s`, `git l`, `git lg`, `git cm`, `git undo`, `git wip`
 
+## Tests
+
+La suite corre sin red ni sudo — todo usa directorios temporales y stubs de red.
+
+```bash
+bash tests/run_all.sh
+```
+
+| Test file | Tests | Cubre |
+|-----------|------:|-------|
+| `test_setup_system.sh` | 45 | flujo interactivo, mappings pregunta→script, integración |
+| `test_install_dotfiles.sh` | 32 | copia de dotfiles, idempotencia, sobreescritura |
+| `test_install_vim.sh` | 56 | vimrc, colorscheme, vim-sml, directorio incorrecto |
+| `test_install_fonts.sh` | 11 | wget mockeado, FONTS_PATH, limpieza del zip |
+| `test_install_node.sh` | 19 | NVM, versión de Node, paquetes globales, XDG |
+| `test_install_tmux.sh` | 8 | git clone TPM, copia condicional de tmux.conf |
+| `test_exports.sh` | 12 | valores de env vars, export a subshells |
+| `test_extract_all.sh` | 15 | archivos reales zip/tar/gz/bz2/xz |
+| `test_move_up.sh` | 11 | mover archivos, limpiar dirs vacíos, cancelación |
+| `test_chperm.sh` | 11 | chmod 755 dirs / 644 archivos, recursivo |
+| `test_alias_sh.sh` | 18 | aliases, EDITOR, función `l.` |
+| `test_cpipe.sh` | 8 | colorización ANSI, TTYONLY, passthrough |
+| **Total** | **246** | |
+
+Para correr un test individual:
+
+```bash
+bash tests/test_install_dotfiles.sh
+```
+
 ## Utilidades en `bin/`
 
 | Script | Descripción |
