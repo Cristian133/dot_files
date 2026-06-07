@@ -292,7 +292,7 @@
 | `Space F` | Normal | Formatear buffer |
 | `Space rn` | Normal | Renombrar símbolo |
 
-> LSP instalados: `lua_ls`, `ts_ls`, `clangd`, `zls`, `omnisharp`, `angularls`
+> LSP instalados: `lua_ls`, `ts_ls`, `clangd`, `zls`, `rust_analyzer`, `omnisharp`, `angularls`
 
 ### Keybindings internos
 
@@ -334,29 +334,28 @@
 
 ---
 
-## None-ls (none-ls.nvim)
+## Formato y Linting (conform.nvim + nvim-lint)
 
-> Bridge entre herramientas externas y el LSP. No tiene panel ni keybindings internos propios.
+> **conform.nvim** gestiona el formateo; **nvim-lint** ejecuta linters al guardar. Ambos corren de forma independiente del LSP.
 
-**Keybinding configurado**
+**Keybinding**
 
 | Atajo | Modo | Acción |
 |-------|------|--------|
-| `Space F` | Normal | Formatear el buffer actual |
+| `Space F` | Normal | Formatear el buffer actual (conform, con fallback a LSP) |
 
 **Herramientas activas**
 
 | Herramienta | Tipo | Lenguaje |
 |-------------|------|----------|
 | `stylua` | Formatter | Lua |
-| `cpplint` | Linter | C / C++ |
+| `cpplint` | Linter | C / C++ (solo si el binario está disponible) |
 
 **Comandos útiles**
 
 | Comando | Acción |
 |---------|--------|
-| `:NullLsInfo` | Ver fuentes activas en el buffer actual |
-| `:NullLsLog` | Ver log de none-ls para debugging |
+| `:ConformInfo` | Ver formatters activos en el buffer actual |
 
 ---
 
@@ -607,7 +606,7 @@
 
 ---
 
-## Comentarios (nvim-comment)
+## Comentarios (Comment.nvim)
 
 > Detecta automáticamente el tipo de comentario según el lenguaje del buffer.
 
@@ -616,16 +615,11 @@
 | Key | Modo | Acción |
 |-----|------|--------|
 | `Space cc` | Normal | Comentar/descomentar la línea actual |
+| `Space cb` | Normal | Comentar/descomentar como bloque |
 | `Space c{motion}` | Normal | Comentar/descomentar con motion (ej: `Space cj` → línea siguiente) |
-| `Space c` | Visual | Comentar/descomentar la selección |
-
-**Text object**
-
-| Key | Modo | Acción |
-|-----|------|--------|
-| `vic` | Visual | Seleccionar bloque de comentario (`ic`) |
-| `dic` | Normal | Borrar bloque de comentario |
-| `yic` | Normal | Copiar bloque de comentario |
+| `Space b{motion}` | Normal | Comentar/descomentar bloque con motion |
+| `Space c` | Visual | Comentar/descomentar la selección (línea) |
+| `Space b` | Visual | Comentar/descomentar la selección (bloque) |
 
 ---
 

@@ -129,10 +129,6 @@ map("n", "<leader>mj", "]'", { noremap = true, desc = "Next mark." })
 map("n", "<leader>mk", "['", { noremap = true, desc = "Previous mark." })
 map("n", "<leader>md", "<cmd>delmarks!<CR>", { noremap = true, desc = "Delete all marks (current buffer)." })
 
--- comments
-map("n", "<leader>cc", "<cmd>CommentToggle<CR>", { desc = "Comment/uncomment line." })
-map("v", "<leader>c", "<cmd>CommentToggle<CR>", { desc = "Comment/uncomment selection." })
-
 -- which-key
 map("n", "<leader>?", function() require("which-key").show({ global = false }) end, { desc = "Buffer local keymaps (which-key)." })
 
