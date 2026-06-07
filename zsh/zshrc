@@ -61,9 +61,5 @@ export BUN_INSTALL="$HOME/.bun"
 # Deno
 [ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
-# Google Cloud SDK
-[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] && . "$HOME/google-cloud-sdk/path.zsh.inc"
-[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ] && . "$HOME/google-cloud-sdk/completion.zsh.inc"
-
 # Secrets — store in ~/.env.local (not versioned)
 [ -f "$HOME/.env.local" ] && source "$HOME/.env.local"
