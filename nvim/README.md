@@ -38,4 +38,4 @@ Ver [KEYMAPS.md](KEYMAPS.md) para la referencia completa de keybindings.
 
 ## LSP instalados
 
-`lua_ls` · `ts_ls` · `clangd` · `zls` · `omnisharp` · `angularls`
+`lua_ls` · `ts_ls` · `clangd` · `zls` · `rust_analyzer` · `omnisharp` · `angularls`

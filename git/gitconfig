@@ -51,6 +51,9 @@
     
     # Utility
     unstage = reset HEAD --
+    undo = reset HEAD~1 --mixed
+    cane = commit --amend --no-edit
+    wip = !git add -A && git commit -m "WIP [skip ci]"
 
 [diff]
     algorithm = histogram

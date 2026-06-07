@@ -11,8 +11,8 @@ if [ -z "${FONTS_PATH+x}" ]; then
     exit 1
 fi
 
-mkdir -p $FONTS_PATH
-cd $FONTS_PATH
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.zip -O $FONTS_PATH/CascadiaMono.zip
+mkdir -p "$FONTS_PATH"
+cd "$FONTS_PATH"
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/CascadiaMono.zip -O "$FONTS_PATH/CascadiaMono.zip"
 unzip CascadiaMono.zip
 rm CascadiaMono.zip
