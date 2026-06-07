@@ -16,4 +16,6 @@ require("options")
 vim.cmd("source ~/.config/nvim/lua/functions.vim")
 vim.cmd("source ~/.config/nvim/lua/keymaps.vim")
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+    rocks = { enabled = false },
+})

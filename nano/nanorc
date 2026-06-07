@@ -1,58 +1,55 @@
-## Automatically indent a newly created line to the same number of
-## tabs and/or spaces as the preceding line -- or as the next line
-## if the preceding line is the beginning of a paragraph.
+## ====================================================================
+## Configuración de Comportamiento y Edición
+## ====================================================================
+
+## Sangría automática alineada a la línea anterior
 set autoindent
 
-## Back up files to the current filename plus a tilde.
+## Copias de seguridad automáticas en un directorio dedicado (~/.nano/)
 set backup
-
-## The directory to put unique backup files in.
 set backupdir "~/.nano/"
 
+## Ajuste visual de líneas largas (¡NO rompe el código con saltos reales!)
+# Desactivamos breaklonglines para no corromper la sintaxis al programar
+# set breaklonglines
+set softwrap
 
-## Automatically hard-wrap the current line when it becomes overlong.
-set breaklonglines
-
-## Remember the used search/replace strings for the next session.
+## Historial de búsquedas y cursor persistente entre sesiones
 set historylog
-
-## Display line numbers to the left (and any anchors in the margin).
-set linenumbers
-
-## Enable vim-style lock-files.  This is just to let a vim user know you
-## are editing a file [s]he is trying to edit and vice versa.  There are
-## no plans to implement vim-style undo state in these files.
-set locking
-
-## Switch on multiple file buffers (inserting a file will put it into
-## a separate buffer).
-set multibuffer
-
-## Remember the cursor position in each file for the next editing session.
 set positionlog
 
-## Use this tab size instead of the default; it must be greater than 0.
-set tabsize 4
+## Mostrar números de línea a la izquierda
+set linenumbers
 
-## Convert each typed tab to the fitting number of spaces.
+## Activar el uso del ratón (clic para mover cursor, scroll y menú inferior)
+set mouse
+
+## Barra de estado minimalista y moderna (Nano 8+)
+set minibar
+
+## Configuración de tabulación (4 espacios en lugar de tabuladores reales)
+set tabsize 4
 set tabstospaces
 
-## Snip whitespace at the end of lines when justifying or hard-wrapping.
-# set trimblanks
-
-## Save files by default in Unix format (also when they were DOS or Mac).
+## Guardar siempre los archivos con formato Unix por defecto
 set unix
 
-## Paint the interface elements of nano.  These are examples; there are
-## no colors by default, except for errorcolor and spotlightcolor.
-set titlecolor bold,white,blue
-# set promptcolor lightwhite,grey
-set statuscolor white
+## Resaltar paréntesis, corchetes y llaves coincidentes
+set matchbrackets "(<[{)>]}"
+
+## ====================================================================
+## Resaltado de Sintaxis (Syntax Highlighting)
+## ====================================================================
+## Carga resaltado para Python, Go, JS, JSON, HTML, Bash, Markdown, etc.
+include "/usr/share/nano/*.nanorc"
+
+## ====================================================================
+## Paleta de Colores Moderna (Aesthetic Dark Mode)
+## ====================================================================
+set titlecolor bold,lightwhite,magenta
+set statuscolor lightwhite,cyan
 set errorcolor bold,white,red
-# set spotlightcolor black,lightyellow
-set selectedcolor lightwhite,magenta
-# set stripecolor ,yellow
-# set scrollercolor cyan
-set numbercolor white
-set keycolor white,blue
+set selectedcolor black,lightyellow
+set numbercolor bold,yellow
+set keycolor bold,cyan
 set functioncolor white

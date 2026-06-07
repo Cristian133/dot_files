@@ -1,7 +1,9 @@
 local opt = vim.opt
 
--- Disable luarocks support completely
--- opt.rocks.enabled = false
+-- Disable unused remote providers to suppress checkhealth warnings
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- Line wrap
 opt.wrap = true

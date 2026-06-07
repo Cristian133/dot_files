@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-cp ./git/gitconfig ~/.gitconfig
-cp ./htop/htoprc ~/.htoprc
-cp ./nano/nanorc ~/.nanorc
-cp ./zsh/alias ~/.alias
-cp ./env/exports.sh ~/.exports
+set -e
 
-mkdir ~/.nano
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-grep -qxF 'source ~/.alias' ~/.zshrc || echo "source ~/.alias" >> ~/.zshrc
-grep -qxF 'source ~/.exports' ~/.zshrc || echo "source ~/.exports" >> ~/.zshrc
+cp "$DOTFILES_DIR/git/gitconfig"   ~/.gitconfig
+cp "$DOTFILES_DIR/nano/nanorc"     ~/.nanorc
+cp "$DOTFILES_DIR/zsh/zshrc"       ~/.zshrc
+cp "$DOTFILES_DIR/zsh/alias.sh"    ~/.alias.sh
+cp "$DOTFILES_DIR/tmux/tmux.conf"  ~/.tmux.conf
+cp "$DOTFILES_DIR/htop/htoprc"     ~/.config/htop/htoprc
+
+mkdir -p ~/.nano ~/.cache/zsh
