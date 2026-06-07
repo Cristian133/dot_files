@@ -29,8 +29,8 @@ bash sh/install_git.sh       # compile git from source
 Environment variables needed before installing (see `env/exports.sh`):
 - `DEV` — base development path
 - `FONTS_PATH` — `~/.local/share/fonts/` (Ubuntu) or `~/.fonts/` (Debian)
-- `NVM_VERSION` — currently `0.40.1`
-- `NODE_DEFAULT_VERSION` — currently `v20.18.1`
+- `NVM_VERSION` — currently `0.40.5`
+- `NODE_DEFAULT_VERSION` — currently `v22.22.3` (LTS Jod)
 
 ## How dotfiles are deployed
 
@@ -58,17 +58,17 @@ Plugin structure:
 - `nvim/lua/functions.vim` / `nvim/lua/keymaps.vim` — legacy vimscript helpers
 
 Plugin manager: **lazy.nvim** (`:Lazy` to open). Active plugins:
-`alpha`, `autoclose`, `bufferline`, `nvim-cmp` + `luasnip`, `conform`, `nvim-dap` + `dap-ui`, `fugitive`, `gitsigns`, `indent-blankline`, `LSP` (mason + lspconfig), `conform`, `nvim-lint`, `lualine`, `render-markdown`, `marks`, `neo-tree`, `nvim-surround`, `telescope`, `tokyonight`, `treesitter`, `trouble`, `which-key`, `Comment.nvim`
+`alpha`, `autoclose`, `bufferline`, `nvim-cmp` + `luasnip`, `conform`, `nvim-lint`, `nvim-dap` + `dap-ui`, `fugitive`, `gitsigns`, `indent-blankline`, `LSP` (mason + lspconfig), `lualine`, `render-markdown`, `marks`, `neo-tree`, `nvim-surround`, `telescope`, `tokyonight`, `treesitter`, `trouble`, `which-key`, `Comment.nvim`
 
 LSP servers (managed by Mason): `lua_ls`, `ts_ls`, `clangd`, `zls`, `rust_analyzer`, `omnisharp`, `angularls`  
 Formatters (conform): `stylua` (Lua). Linters (nvim-lint): `cpplint` (C/C++)  
 DAP adapter: `coreclr` (C# / .NET via `netcoredbg`)
 
 Key neovim shortcuts (leader = `,`):
-- `<leader>zf` — find files, `<leader>zg` — live grep (Telescope)
-- `<leader>f` — Neo-tree sidebar, `<leader>ff` — Neo-tree float
-- `<leader>F` — format buffer, `<leader>ca` — code actions
-- `<leader>xx` — project diagnostics (Trouble), `<leader>db` — toggle breakpoint
+- `,zf` — find files, `,zg` — live grep (Telescope)
+- `,f` — Neo-tree sidebar, `,ff` — Neo-tree float
+- `,F` — format buffer (conform), `,ca` — code actions
+- `,xx` — project diagnostics (Trouble), `,db` — toggle breakpoint
 - `F5`/`F6`/`F7`/`F8` — DAP continue/step-over/step-into/step-out
 - Full keymap reference: `nvim/KEYMAPS.md`
 
@@ -76,9 +76,15 @@ Key neovim shortcuts (leader = `,`):
 
 `zsh/zshrc` uses **Oh My Zsh** with plugins: `git history-substring-search colored-man-pages`, and **Starship** as the prompt (`eval "$(starship init zsh)"`).
 
+History: `HISTSIZE=50000`, deduplication via `HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY`.
+
 NVM is lazy-loaded (not sourced on shell start) — first invocation of `nvm`, `node`, `npm`, `npx`, `yarn`, or `pnpm` triggers the load.
 
 Angular CLI completion is cached to `~/.cache/zsh/ng-completion.zsh` and only regenerated when the `ng` binary changes.
+
+Bun and Deno are sourced at shell start if installed (`~/.bun` / `~/.deno`).
+
+Secrets (tokens, credentials) must go in `~/.env.local` (not versioned). The zshrc loads it automatically at the end if the file exists.
 
 ## Tmux setup
 
@@ -97,12 +103,12 @@ Splits: `prefix + |` (horizontal), `prefix + -` (vertical), both open in current
 - `rerere.enabled = true` — remembers conflict resolutions
 - `fetch.all = true`, `fetch.prune = true`
 - Credential cache: 8 hours (`--timeout=28800`)
-- Common aliases: `git s` (status -s), `git l` / `git lg` (pretty log), `git cm` (commit -m), `git co` (checkout)
+- Common aliases: `git s`, `git l`/`git lg` (pretty log), `git cm`, `git co`, `git undo` (reset HEAD~1 --mixed), `git cane` (amend no-edit), `git wip`
 
 ## Utility scripts in `bin/`
 
 - `extract_all` — recursively extracts zip/rar/tar/gz/bz2/xz archives in the current directory
 - `move_up` — moves files up one directory level
-- `chpermdir` / `chpermfile` — bulk permission fixers
+- `chpermdir` / `chpermfile` — bulk permission fixers (755 dirs / 644 files)
 - `colors.sh` — terminal color test
 - `cpipe` — clipboard pipe helper
