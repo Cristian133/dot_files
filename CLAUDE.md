@@ -53,7 +53,7 @@ Entry point: `nvim/init.lua` — loads `lazy.nvim`, then requires `keymaps`, `op
 
 Plugin structure:
 - `nvim/lua/plugins/` — one file per plugin (lazy.nvim spec format)
-- `nvim/lua/keymaps.lua` — **single source of truth for all keymaps** (leader = `Space`)
+- `nvim/lua/keymaps.lua` — **single source of truth for all keymaps** (leader = `,`)
 - `nvim/lua/options.lua` — editor options (4-space tabs, swapfile/backup/undo in `~/.config/nvim/.swp/`, `.bkp/`, `.undo/`)
 - `nvim/lua/functions.vim` / `nvim/lua/keymaps.vim` — legacy vimscript helpers
 
