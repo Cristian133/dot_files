@@ -16,7 +16,8 @@ Configuración personal de Neovim basada en Lua con [lazy.nvim](https://github.c
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Gestor de LSP, linters y formatters |
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | Autocompletado |
 | [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | Snippets |
-| [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim) | Linters y formatters externos |
+| [conform.nvim](https://github.com/stevearc/conform.nvim) | Formateo de código (stylua para Lua) |
+| [nvim-lint](https://github.com/mfussenegger/nvim-lint) | Linting (cpplint para C/C++) |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Búsqueda fuzzy |
 | [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) | Explorador de archivos |
 | [vim-fugitive](https://github.com/tpope/vim-fugitive) | Integración con Git |
@@ -27,7 +28,7 @@ Configuración personal de Neovim basada en Lua con [lazy.nvim](https://github.c
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Ayuda de keybindings |
 | [marks.nvim](https://github.com/chentoast/marks.nvim) | Gestión de marks |
 | [nvim-surround](https://github.com/kylechui/nvim-surround) | Surrounding de texto |
-| [nvim-comment](https://github.com/terrortylor/nvim-comment) | Comentarios |
+| [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Comentarios |
 | [autoclose.nvim](https://github.com/m4xshen/autoclose.nvim) | Cierre automático de pares |
 | [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Guías de indentación |
 | [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | Preview de Markdown |

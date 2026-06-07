@@ -85,12 +85,6 @@ map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, { desc
 map("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "DAP Conditional Breakpoint." })
 map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "DAP UI Toggle." })
 
--- none-ls
-map("n", "<leader>F", function() vim.lsp.buf.format() end, { desc = "Format buffer." })
-
--- render-markdown
-map("n", "<leader>M", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle Markdown preview." })
-
 -- telescope
 local tb = function(picker) return function() require("telescope.builtin")[picker]() end end
 map("n", "<leader>zf", tb("find_files"), { desc = "Find files." })
