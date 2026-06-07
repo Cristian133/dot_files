@@ -51,6 +51,7 @@ declare -A DOTFILES=(
     ["zsh/alias.sh"]=".alias.sh"
     ["tmux/tmux.conf"]=".tmux.conf"
     ["htop/htoprc"]=".config/htop/htoprc"
+    ["starship/starship.toml"]=".config/starship.toml"
 )
 
 # ---------------------------------------------------------------------------
