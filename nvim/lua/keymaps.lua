@@ -117,6 +117,11 @@ map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_blame_line<CR>", { desc = "
 map("n", "<leader>gh", ":Ghdiffsplit<CR>", { desc = "Git diff horizontal split." })
 map("n", "<leader>gv", ":Gvdiffsplit<CR>", { desc = "Git diff vertical split. " })
 
+-- diffview
+map("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Diffview: panel de archivos modificados." })
+map("n", "<leader>gD", ":DiffviewClose<CR>", { desc = "Diffview: cerrar." })
+map("n", "<leader>gF", ":DiffviewFileHistory %<CR>", { desc = "Diffview: historial del archivo actual." })
+
 -- marks
 map("n", "<leader>mm", "<cmd>MarksListBuf<CR>", { noremap = true, desc = "Marks list buffer." })
 map("n", "<leader>mj", "]'", { noremap = true, desc = "Next mark." })

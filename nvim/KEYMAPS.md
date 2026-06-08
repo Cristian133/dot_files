@@ -468,16 +468,57 @@
 
 ---
 
-## Git (Fugitive + Gitsigns)
+## Git (Fugitive + Gitsigns + Diffview)
 
 ### Keybindings globales
 
-| Atajo | Descripción |
-|-------|-------------|
-| `, gh` | Diff horizontal split (Fugitive) |
-| `, gv` | Diff vertical split (Fugitive) |
-| `, gp` | Preview hunk (Gitsigns) |
-| `, gb` | Toggle blame de línea actual (Gitsigns) |
+| Atajo | Plugin | Descripción |
+|-------|--------|-------------|
+| `<leader>gd` | Diffview | Abrir panel de archivos modificados + diff |
+| `<leader>gD` | Diffview | Cerrar panel Diffview |
+| `<leader>gF` | Diffview | Historial de commits del archivo actual |
+| `<leader>gh` | Fugitive | Diff horizontal split |
+| `<leader>gv` | Fugitive | Diff vertical split |
+| `<leader>gp` | Gitsigns | Preview hunk |
+| `<leader>gb` | Gitsigns | Toggle blame de línea actual |
+| `<leader>gg` | Neo-tree | Panel flotante git status |
+| `<leader>zgs` | Telescope | Lista de archivos modificados |
+
+---
+
+### Diffview — keybindings internos
+
+> Se abre con `<leader>gd`. Panel izquierdo: lista de archivos modificados. Panel derecho: diff lado a lado.
+
+**Navegación entre archivos**
+
+| Key | Acción |
+|-----|--------|
+| `Tab` | Siguiente archivo en el panel |
+| `Shift-Tab` | Archivo anterior en el panel |
+| `Enter` | Abrir el diff del archivo seleccionado |
+| `j` / `k` | Moverse en la lista de archivos |
+
+**Navegación en el diff**
+
+| Key | Acción |
+|-----|--------|
+| `]c` / `[c` | Siguiente / anterior diferencia |
+| `<C-w>h` / `<C-w>l` | Moverse entre los paneles del diff |
+
+**Acciones**
+
+| Key | Acción |
+|-----|--------|
+| `s` | Stage archivo |
+| `u` | Unstage archivo |
+| `X` | Descartar cambios del archivo |
+| `R` | Refrescar la lista |
+| `g<C-x>` | Cambiar el layout del diff |
+| `q` | Cerrar Diffview |
+| `?` | Mostrar ayuda completa |
+
+---
 
 ### Fugitive — keybindings internos
 
